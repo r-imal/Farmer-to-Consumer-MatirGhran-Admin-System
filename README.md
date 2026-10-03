@@ -1,28 +1,72 @@
-# MatirGhran Admin Part
+\# 🎓 Abroad Higher Studies Solution
 
-This folder contains the admin-focused portion of the project with the supporting code needed to compile and run the admin dashboard as a standalone preview.
 
-Included:
-- Admin controllers: dashboard, agent approval/assignment, employee/user management, payments
-- Admin views and shared admin layout/sidebar/message partials
-- Required data, entity, repo, and shared projects
-- Required static assets without `bin`, `obj`, `.vs`, logs, or zip artifacts
 
-Build from this folder:
+> A comprehensive platform designed to streamline the journey for students aspiring to pursue higher education abroad. From university selection to application tracking, we make studying abroad accessible and organized.
 
-```powershell
-dotnet build FarmerToConsumer.Web.sln
-```
 
-Run the preview without login:
 
-```powershell
-cd FarmerToConsumer.Web
-dotnet run --urls http://localhost:36474
-```
+\## 📖 Overview
 
-Main admin route:
 
-```text
-http://localhost:36474/
-```
+
+The \*\*Abroad Higher Studies Solution\*\* is a centralized system that bridges the gap between prospective international students and global educational institutions. It provides tools for searching programs, managing application documents, tracking admission statuses, and finding guidance on visa processes, all in one intuitive interface.
+
+
+
+\## ✨ Key Features
+
+
+
+\* \*\*🌍 University \& Program Discovery:\*\* Search and filter universities based on country, course, tuition fees, and language requirements.
+
+\* \*\*📂 Document Management:\*\* Securely upload, store, and manage essential application documents (Transcripts, SOPs, LORs, Passports).
+
+\* \*\*📊 Application Tracker:\*\* Real-time dashboard to monitor the status of multiple university applications (e.g., \*Draft\*, \*Submitted\*, \*Under Review\*, \*Accepted\*).
+
+\* \*\*✈️ Visa \& Immigration Guidance:\*\* Step-by-step checklists for visa applications specific to the destination country.
+
+\* \*\*💬 User Profiles:\*\* Personalized student dashboards to save favorite programs and track personal progress.
+
+
+
+\## 🛠️ Tech Stack
+
+
+
+\*(Note: Please update this section based on the actual technologies you used)\*
+
+\* \*\*Frontend:\*\* React.js / HTML \& CSS / Bootstrap
+
+\* \*\*Backend:\*\* Node.js (Express) / Python (Django/Flask) / PHP
+
+\* \*\*Database:\*\* MongoDB / PostgreSQL / MySQL
+
+\* \*\*Authentication:\*\* JWT / Firebase
+
+
+
+\## ⚙️ Prerequisites
+
+
+
+Before you begin, ensure you have the following installed on your machine:
+
+\* \[Node.js](https://nodejs.org/) (if using JavaScript)
+
+\* \[Python](https://www.python.org/) (if using Python)
+
+\* \[Git](https://git-scm.com/)
+
+
+
+\## 🚀 Installation \& Setup
+
+
+
+1\. \*\*Clone the repository:\*\*
+
+&#x20;  ```bash
+
+&#x20;  git clone \[https://github.com/r-imal/FinalProject.git](https://github.com/r-imal/FinalProject.git)
+
