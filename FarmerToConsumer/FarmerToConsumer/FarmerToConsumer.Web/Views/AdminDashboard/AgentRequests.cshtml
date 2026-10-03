@@ -1,0 +1,43 @@
+@model List<FarmerToConsumer.Entities.UserInfo>
+@{
+    ViewData["Title"] = "Agent Requests";
+}
+
+<div class="container-fluid px-0"><div class="row g-0 min-vh-100">
+    <partial name="_AdminSidebar" />
+    <section class="col bg-light text-dark p-4">
+        <div class="d-flex justify-content-between align-items-center gap-3 mb-4">
+            <div>
+                <p class="text-warning text-uppercase fw-bold mb-1">Hiring</p>
+                <h2>Agent Requests</h2>
+            </div>
+        </div>
+
+        @if (Model.Any())
+        {
+            <div>
+                @foreach (var user in Model)
+                {
+                    <div class="card card-body bg-white text-dark shadow-sm border-0">
+                        <h4>@user.Name</h4>
+                        <p class="mb-1"><strong>Email:</strong> @user.Email</p>
+                        <p class="mb-1"><strong>Phone:</strong> @user.Phone</p>
+                        <p class="mb-1"><strong>Address:</strong> @user.Address</p>
+                        <p class="mb-1"><strong>Work Village:</strong> @user.Village</p>
+                        <form asp-controller="AdminAgent" asp-action="HireAgent" method="post">
+                            <input type="hidden" name="id" value="@user.ID" />
+                            <label class="form-label">Assign Work Village</label>
+                            <input class="form-control mb-2" name="village" value="@user.Village" required />
+                            <button class="btn btn-success btn-sm">Approve and Hire</button>
+                        </form>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="card card-body bg-white text-dark shadow-sm border-0 text-center text-secondary py-4">No pending agent requests right now.</div>
+        }
+    </section>
+    </div>
+</div>

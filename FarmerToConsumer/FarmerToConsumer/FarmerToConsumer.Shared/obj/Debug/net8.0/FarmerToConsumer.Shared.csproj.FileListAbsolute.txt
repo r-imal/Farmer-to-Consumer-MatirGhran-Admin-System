@@ -1,0 +1,30 @@
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Shared\bin\Debug\net8.0\FarmerToConsumer.Shared.deps.json
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Shared\bin\Debug\net8.0\FarmerToConsumer.Shared.dll
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Shared\bin\Debug\net8.0\FarmerToConsumer.Shared.pdb
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Shared\bin\Debug\net8.0\FarmerToConsumer.Entities.dll
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Shared\bin\Debug\net8.0\FarmerToConsumer.Entities.pdb
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Shared\obj\Debug\net8.0\FarmerToConsumer.Shared.csproj.AssemblyReference.cache
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Shared\obj\Debug\net8.0\FarmerToConsumer.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Shared\obj\Debug\net8.0\FarmerToConsumer.Shared.AssemblyInfoInputs.cache
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Shared\obj\Debug\net8.0\FarmerToConsumer.Shared.AssemblyInfo.cs
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Shared\obj\Debug\net8.0\FarmerToConsumer.Shared.csproj.CoreCompileInputs.cache
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Shared\obj\Debug\net8.0\FarmerTo.84288E41.Up2Date
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Shared\obj\Debug\net8.0\FarmerToConsumer.Shared.dll
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Shared\obj\Debug\net8.0\refint\FarmerToConsumer.Shared.dll
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Shared\obj\Debug\net8.0\FarmerToConsumer.Shared.pdb
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Shared\obj\Debug\net8.0\ref\FarmerToConsumer.Shared.dll
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Shared\bin\Debug\net8.0\FarmerToConsumer.Shared.deps.json
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Shared\bin\Debug\net8.0\FarmerToConsumer.Shared.dll
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Shared\bin\Debug\net8.0\FarmerToConsumer.Shared.pdb
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Shared\bin\Debug\net8.0\FarmerToConsumer.Entities.dll
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Shared\bin\Debug\net8.0\FarmerToConsumer.Entities.pdb
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Shared\obj\Debug\net8.0\FarmerToConsumer.Shared.csproj.AssemblyReference.cache
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Shared\obj\Debug\net8.0\FarmerToConsumer.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Shared\obj\Debug\net8.0\FarmerToConsumer.Shared.AssemblyInfoInputs.cache
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Shared\obj\Debug\net8.0\FarmerToConsumer.Shared.AssemblyInfo.cs
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Shared\obj\Debug\net8.0\FarmerToConsumer.Shared.csproj.CoreCompileInputs.cache
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Shared\obj\Debug\net8.0\FarmerTo.84288E41.Up2Date
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Shared\obj\Debug\net8.0\FarmerToConsumer.Shared.dll
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Shared\obj\Debug\net8.0\refint\FarmerToConsumer.Shared.dll
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Shared\obj\Debug\net8.0\FarmerToConsumer.Shared.pdb
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Shared\obj\Debug\net8.0\ref\FarmerToConsumer.Shared.dll

@@ -1,0 +1,66 @@
+@model List<Product>
+
+<div class="container-fluid px-0"><div class="row g-0 min-vh-100">
+    <partial name="_AgentSidebar" />
+    <section class="col bg-light text-dark p-4">
+        <div class="row pt-2">
+            <div class="col-6">
+                <h2>Manage Products</h2>
+            </div>
+
+            <div class="col-6 text-end">
+                <a class="btn btn-primary" asp-action="Detail" asp-controller="Product" asp-route-dataId="-1">
+                    <i class="bi bi-plus-circle-fill"></i> &nbsp; Add New Product
+                </a>
+            </div>
+
+            <hr />
+        </div>
+
+        <div class="row pt-2">
+            <div class="col-12">
+                <table class="table table-light table-striped table-hover table-bordered align-middle">
+                    <tr class="table-info">
+                        <th>Ref</th>
+                        <th>Farmer</th>
+                        <th>Agent</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Actions</th>
+                    </tr>
+
+                    @if (Model == null || Model.Count == 0)
+                    {
+                        <tr class="table-secondary text-center">
+                            <td colspan="6">No Data to show.</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (var product in Model)
+                        {
+                            <tr>
+                                <td>@product.ID</td>
+                                <td>@(product.Farmer?.Name ?? "-")</td>
+                                <td>@(product.Agent?.Name ?? "-")</td>
+                                <td>@product.Name</td>
+                                <td>@product.Category</td>
+                                <td>
+                                    <div class="d-flex gap-2 flex-nowrap">
+                                        <a class="btn btn-info btn-sm" asp-action="Detail" asp-controller="Product" asp-route-dataId="@product.ID">
+                                            <i class="bi bi-pencil-square"></i> Edit
+                                        </a>
+
+                                        <a onclick="return confirm('Are you sure?');" class="btn btn-danger btn-sm" asp-action="Delete" asp-controller="Product" asp-route-dataId="@product.ID">
+                                            <i class="bi bi-trash3"></i> Delete
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            </div>
+        </div>
+    </section>
+</div></div>

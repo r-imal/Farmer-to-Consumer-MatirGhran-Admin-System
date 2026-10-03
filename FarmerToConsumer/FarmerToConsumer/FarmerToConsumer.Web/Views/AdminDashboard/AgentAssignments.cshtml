@@ -1,0 +1,94 @@
+@{
+    ViewData["Title"] = "Agent Assignments";
+    var agents = ViewBag.Agents as List<FarmerToConsumer.Entities.Agent> ?? new();
+    var assignments = ViewBag.Assignments as List<FarmerToConsumer.Entities.AgentAssignment> ?? new();
+    var assignmentByAgentId = assignments
+        .GroupBy(assignment => assignment.AgentUserId)
+        .ToDictionary(group => group.Key, group => group.OrderByDescending(assignment => assignment.ID).First());
+    var assignedAgents = agents
+        .Where(agent => assignmentByAgentId.TryGetValue(agent.ID, out var assignment) && !string.IsNullOrWhiteSpace(assignment.AgentWorkVillage))
+        .OrderBy(agent => agent.Name)
+        .ToList();
+}
+
+<div class="container-fluid px-0"><div class="row g-0 min-vh-100">
+    <partial name="_AdminSidebar" />
+    <section class="col bg-light text-dark p-4">
+        <div class="d-flex justify-content-between align-items-center gap-3 mb-4">
+            <div>
+                <p class="text-warning text-uppercase fw-bold mb-1">Agent Work</p>
+                <h2>Assign Agent Work Village</h2>
+            </div>
+        </div>
+
+        <form asp-controller="AdminAgent" asp-action="AssignAgentWork" method="post" class="card card-body bg-white text-dark shadow-sm border-0">
+            <div class="row g-3">
+                <div class="col-12">
+                    <label class="form-label">Agent</label>
+                    <select name="agentId" class="form-select" required>
+                        <option value="">Select Agent</option>
+                        @foreach (var agent in agents.OrderBy(a => a.Name))
+                        {
+                            <option value="@agent.ID">#@agent.ID - @agent.Name (@agent.Phone)</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label">Work Village</label>
+                    <input id="workVillage" name="village" class="form-control" placeholder="Village name" required />
+                </div>
+            </div>
+            <button class="btn btn-primary mt-3">Save Assignment</button>
+        </form>
+
+        <div class="d-flex justify-content-between align-items-center gap-3 mt-4 mb-4">
+            <div>
+                <p class="text-warning text-uppercase fw-bold mb-1">Assigned List</p>
+                <h2>Current Agent Assignments</h2>
+            </div>
+        </div>
+
+        <div class="card card-body bg-white text-dark shadow-sm border-0 table-responsive">
+            @if (assignedAgents.Any())
+            {
+                <table class="table table-light table-striped table-hover align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>Agent</th>
+                            <th>Phone</th>
+                            <th>Village</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var agent in assignedAgents)
+                        {
+                            var assignment = assignmentByAgentId[agent.ID];
+                            var village = assignment.AgentWorkVillage ?? "Not assigned";
+
+                            <tr>
+                                <td>#@agent.ID - @agent.Name</td>
+                                <td>@agent.Phone</td>
+                                <td>@village</td>
+                                <td class="text-end">
+                                    <div class="d-flex justify-content-end gap-2">
+                                        <a class="btn btn-outline-primary btn-sm" asp-controller="AdminAgent" asp-action="AssignmentDetails" asp-route-id="@agent.ID">Details</a>
+                                        <form asp-controller="AdminAgent" asp-action="DeleteAssignment" method="post" class="m-0" onsubmit="return confirm('Delete this assignment?');">
+                                            <input type="hidden" name="id" value="@agent.ID" />
+                                            <button class="btn btn-outline-danger btn-sm">Delete</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p class="text-center text-secondary mb-0 py-4">No agent assignment has been saved yet.</p>
+            }
+        </div>
+    </section>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+@model CustomerCheckoutModel
+
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<div class="container py-4">
+    <div class="card">
+        <div class="card-body p-4">
+            <h1 class="h3">Checkout</h1>
+            <hr />
+            <form method="post">
+                <div class="mb-3">
+                    <label asp-for="DeliveryAddress" class="form-label"></label>
+                    <textarea asp-for="DeliveryAddress" class="form-control" rows="4"></textarea>
+                    <span asp-validation-for="DeliveryAddress" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="PaymentMethod" class="form-label"></label>
+                    <select asp-for="PaymentMethod" class="form-select">
+                        <option value="OnlinePayment">Online Payment</option>
+                        <option value="CashOnDelivery">Cash on Delivery</option>
+                    </select>
+                    <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+                </div>
+                <div class="alert alert-info">Cash on Delivery orders can be paid later from order tracking.</div>
+                <button type="submit" class="btn btn-primary">Place Order</button>
+                <a asp-action="Index" class="btn btn-outline-secondary">Back to Cart</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

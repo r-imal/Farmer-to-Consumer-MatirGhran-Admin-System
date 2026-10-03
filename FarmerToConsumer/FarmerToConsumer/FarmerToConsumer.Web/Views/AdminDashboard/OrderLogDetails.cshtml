@@ -1,0 +1,99 @@
+@{
+    ViewData["Title"] = "Order Log Details";
+    var orders = ViewBag.Orders as List<FarmerToConsumer.Entities.CustomerOrder> ?? new();
+
+    string DisplayOrderStatus(string status)
+    {
+        return (status ?? "").Trim().ToLower() switch
+        {
+            "placed" => "Pending",
+            "pending" => "Pending",
+            "accepted" => "Accepted",
+            "processing" => "Processing",
+            "on the way" => "On the way",
+            "ondelivery" => "On the way",
+            "delivered" => "Delivered",
+            _ => string.IsNullOrWhiteSpace(status) ? "Pending" : status
+        };
+    }
+
+    string DisplayPaymentStatus(FarmerToConsumer.Entities.CustomerOrder order)
+    {
+        return string.Equals(order.Payment?.Status, "Paid", StringComparison.OrdinalIgnoreCase) ? "Paid" : "Cash on Delivery";
+    }
+
+    string DisplayPaymentMethod(string? method)
+    {
+        return (method ?? "CashOnDelivery").Trim().ToLower() switch
+        {
+            "onlinepayment" => "Online Payment",
+            "bkash" => "Online Payment",
+            "nagad" => "Online Payment",
+            _ => "Cash on Delivery"
+        };
+    }
+}
+
+<div class="container-fluid px-0"><div class="row g-0 min-vh-100">
+    <partial name="_AdminSidebar" />
+    <section class="col bg-light text-dark p-4">
+        <div class="d-flex justify-content-between align-items-center gap-3 mb-4">
+            <div>
+                <p class="text-warning text-uppercase fw-bold mb-1">Order Log</p>
+                <h2>All Order Details</h2>
+            </div>
+            <a class="btn btn-outline-primary" asp-controller="AdminDashboard" asp-action="Index">Back to Overview</a>
+        </div>
+
+        @if (!orders.Any())
+        {
+            <div class="card card-body bg-white text-dark shadow-sm border-0">
+                <p class="text-secondary mb-0">No order log found.</p>
+            </div>
+        }
+        else
+        {
+            <div class="card card-body bg-white text-dark shadow-sm border-0 table-responsive">
+                <table class="table table-light table-striped table-hover align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>Order</th>
+                            <th>Customer</th>
+                            <th>Address</th>
+                            <th>Payment</th>
+                            <th>Method</th>
+                            <th>Status</th>
+                            <th>Delivery</th>
+                            <th>Agent</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var order in orders.OrderByDescending(o => o.ID))
+                        {
+                            <tr>
+                                <td>#@order.ID</td>
+                                <td>#@order.CustomerId</td>
+                                <td>@order.DeliveryAddress</td>
+                                <td>@DisplayPaymentStatus(order)</td>
+                                <td>@DisplayPaymentMethod(order.Payment?.Method)</td>
+                                <td>@DisplayOrderStatus(order.Status)</td>
+                                <td>@DisplayOrderStatus(order.DeliveryStatus)</td>
+                                <td>@(order.AgentId.HasValue ? $"#{order.AgentId}" : "-")</td>
+                                <td>
+                                    @if (order.Items.Any())
+                                    {
+                                        @string.Join(", ", order.Items.Select(item => $"Product #{item.ProductId} x {item.Quantity}"))
+                                    }
+                                </td>
+                                <td>@order.TotalAmount.ToString("0") BDT</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </section>
+    </div>
+</div>

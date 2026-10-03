@@ -1,0 +1,71 @@
+@model List<CustomerOrder>
+
+<div class="container-fluid px-0"><div class="row g-0 min-vh-100">
+    <partial name="_AgentSidebar" />
+    <section class="col bg-light text-dark p-4">
+        <div class="row pt-2">
+            <div class="col-12">
+                <h2>Manage Orders</h2>
+            </div>
+
+            <hr />
+        </div>
+
+        <div class="row pt-2">
+            <div class="col-12">
+                <table class="table table-light table-striped table-hover table-bordered align-middle">
+                    <tr class="table-info">
+                        <th>Ref</th>
+                        <th>Customer Id</th>
+                        <th>Total Amount</th>
+                        <th>Payment</th>
+                        <th>Address</th>
+                        <th>Current Status</th>
+                        <th>Update Status</th>
+                    </tr>
+
+                    @if (Model == null || Model.Count == 0)
+                    {
+                        <tr class="table-secondary text-center">
+                            <td colspan="7">No Order to show.</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (var order in Model)
+                        {
+                            <tr>
+                                <td>@order.ID</td>
+                                <td>@order.CustomerId</td>
+                                <td>@order.TotalAmount</td>
+                                <td>@(order.Payment?.Status ?? "Cash on Delivery")</td>
+                                <td>@order.DeliveryAddress</td>
+                                <td>@order.Status</td>
+
+                                <td>
+                                    <form method="post" asp-action="UpdateStatus" asp-controller="Order">
+                                        <input type="hidden" name="orderId" value="@order.ID" />
+
+                                        <div class="d-flex gap-2">
+                                            <select name="status" class="form-select">
+                                                <option value="Pending" selected="@(order.Status == "Pending")">Pending</option>
+                                                <option value="Delivery Processing" selected="@(order.Status == "Delivery Processing")">Delivery Processing</option>
+                                                <option value="On The Way" selected="@(order.Status == "On The Way")">On The Way</option>
+                                                <option value="Delivered" selected="@(order.Status == "Delivered")">Delivered</option>
+                                                <option value="Cancel" selected="@(order.Status == "Cancel")">Cancel</option>
+                                            </select>
+
+                                            <button type="submit" class="btn btn-warning btn-sm">
+                                                Update
+                                            </button>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            </div>
+        </div>
+    </section>
+</div></div>

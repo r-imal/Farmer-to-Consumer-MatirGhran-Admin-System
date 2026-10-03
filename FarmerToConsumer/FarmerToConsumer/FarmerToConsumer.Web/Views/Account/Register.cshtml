@@ -1,0 +1,48 @@
+@model UserInfo
+@{
+    ViewData["Title"] = Model.Role == "agent_pending" ? "Register as Agent" : "Register as Consumer";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card card-body shadow-sm border-0">
+                <h2 class="h4 mb-4">@ViewData["Title"]</h2>
+                <form method="post" asp-controller="Account" asp-action="Register">
+                    <input type="hidden" asp-for="Role" />
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label asp-for="Name" class="form-label"></label>
+                            <input asp-for="Name" class="form-control" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="Phone" class="form-label"></label>
+                            <input asp-for="Phone" class="form-control" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="Email" class="form-label"></label>
+                            <input asp-for="Email" type="email" class="form-control" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="Password" class="form-label"></label>
+                            <input asp-for="Password" type="password" class="form-control" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="Village" class="form-label"></label>
+                            <input asp-for="Village" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="District" class="form-label"></label>
+                            <input asp-for="District" class="form-control" />
+                        </div>
+                        <div class="col-12">
+                            <label asp-for="Address" class="form-label"></label>
+                            <input asp-for="Address" class="form-control" />
+                        </div>
+                    </div>
+                    <button class="btn btn-primary mt-4">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+﻿@model Agent
+
+<partial name="_Message" />
+
+<div class="container border mt-4 p-4">
+    <div class="row">
+        <div class="col-12">
+            <h2>Agent# @Model.ID</h2>
+        </div>
+
+        <hr />
+    </div>
+
+    <form method="post" action="#">
+        <input type="hidden" asp-for="ID" />
+
+        <div class="row mb-3">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="row mb-3">
+            <label asp-for="Area" class="form-label"></label>
+            <input asp-for="Area" class="form-control" />
+            <span asp-validation-for="Area" class="text-danger"></span>
+        </div>
+
+        <div class="row mb-3">
+            <label asp-for="CommissionRate" class="form-label"></label>
+            <input asp-for="CommissionRate" class="form-control" readonly />
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-floppy2"></i> &nbsp;Submit
+                </button>
+
+                &nbsp;
+
+                <a asp-action="Index" asp-controller="Home" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left-circle-fill"></i> &nbsp;Back To Dashboard
+                </a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

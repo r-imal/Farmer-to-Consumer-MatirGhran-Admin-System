@@ -1,0 +1,66 @@
+@model List<ProductStock>
+
+<div class="container-fluid px-0"><div class="row g-0 min-vh-100">
+    <partial name="_AgentSidebar" />
+    <section class="col bg-light text-dark p-4">
+        <div class="row pt-2">
+            <div class="col-6">
+                <h2>Manage Product Stock</h2>
+            </div>
+
+            <div class="col-6 text-end">
+                <a class="btn btn-primary" asp-action="Detail" asp-controller="ProductStock" asp-route-dataId="-1">
+                    <i class="bi bi-plus-circle-fill"></i> &nbsp; Add New Stock
+                </a>
+            </div>
+
+            <hr />
+        </div>
+
+        <div class="row pt-2">
+            <div class="col-12">
+                <table class="table table-light table-striped table-hover table-bordered align-middle">
+                    <tr class="table-info">
+                        <th>Ref</th>
+                        <th>Product</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Actions</th>
+                    </tr>
+
+                    @if (Model == null || Model.Count == 0)
+                    {
+                        <tr class="table-secondary text-center">
+                            <td colspan="6">No Data to show.</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (var stock in Model)
+                        {
+                            <tr>
+                                <td>@stock.ID</td>
+                                <td>@(stock.Product?.Category ?? "-")</td>
+                                <td>@(stock.Product?.Name ?? "-")</td>
+                                <td>@stock.Price</td>
+                                <td>@stock.Quantity</td>
+                                <td>
+                                    <div class="d-flex gap-2 flex-nowrap">
+                                        <a class="btn btn-info btn-sm" asp-action="Detail" asp-controller="ProductStock" asp-route-dataId="@stock.ID">
+                                            <i class="bi bi-pencil-square"></i> Edit
+                                        </a>
+
+                                        <a onclick="return confirm('Are you sure?');" class="btn btn-danger btn-sm" asp-action="Delete" asp-controller="ProductStock" asp-route-dataId="@stock.ID">
+                                            <i class="bi bi-trash3"></i> Delete
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            </div>
+        </div>
+    </section>
+</div></div>

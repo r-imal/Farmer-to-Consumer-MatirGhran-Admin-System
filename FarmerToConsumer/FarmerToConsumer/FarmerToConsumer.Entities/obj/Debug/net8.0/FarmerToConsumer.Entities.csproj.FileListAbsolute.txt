@@ -1,0 +1,22 @@
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Entities\bin\Debug\net8.0\FarmerToConsumer.Entities.deps.json
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Entities\bin\Debug\net8.0\FarmerToConsumer.Entities.dll
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Entities\bin\Debug\net8.0\FarmerToConsumer.Entities.pdb
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Entities\obj\Debug\net8.0\FarmerToConsumer.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Entities\obj\Debug\net8.0\FarmerToConsumer.Entities.AssemblyInfoInputs.cache
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Entities\obj\Debug\net8.0\FarmerToConsumer.Entities.AssemblyInfo.cs
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Entities\obj\Debug\net8.0\FarmerToConsumer.Entities.csproj.CoreCompileInputs.cache
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Entities\obj\Debug\net8.0\FarmerToConsumer.Entities.dll
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Entities\obj\Debug\net8.0\refint\FarmerToConsumer.Entities.dll
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Entities\obj\Debug\net8.0\FarmerToConsumer.Entities.pdb
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Entities\obj\Debug\net8.0\ref\FarmerToConsumer.Entities.dll
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Entities\bin\Debug\net8.0\FarmerToConsumer.Entities.deps.json
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Entities\bin\Debug\net8.0\FarmerToConsumer.Entities.dll
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Entities\bin\Debug\net8.0\FarmerToConsumer.Entities.pdb
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Entities\obj\Debug\net8.0\FarmerToConsumer.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Entities\obj\Debug\net8.0\FarmerToConsumer.Entities.AssemblyInfoInputs.cache
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Entities\obj\Debug\net8.0\FarmerToConsumer.Entities.AssemblyInfo.cs
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Entities\obj\Debug\net8.0\FarmerToConsumer.Entities.csproj.CoreCompileInputs.cache
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Entities\obj\Debug\net8.0\FarmerToConsumer.Entities.dll
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Entities\obj\Debug\net8.0\refint\FarmerToConsumer.Entities.dll
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Entities\obj\Debug\net8.0\FarmerToConsumer.Entities.pdb
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Entities\obj\Debug\net8.0\ref\FarmerToConsumer.Entities.dll

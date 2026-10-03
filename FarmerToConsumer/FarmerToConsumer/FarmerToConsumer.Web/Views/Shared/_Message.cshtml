@@ -1,0 +1,31 @@
+@{
+    var messages = new List<(string Type, string Text)>();
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString() ?? "";
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString() ?? "";
+    var isLoginPage = currentController == "Account" && currentAction == "Login";
+
+    void AddMessage(string type, string? text)
+    {
+        if (!string.IsNullOrWhiteSpace(text) && !messages.Any(m => m.Type == type && m.Text == text))
+        {
+            messages.Add((type, text));
+        }
+    }
+
+    if (!isLoginPage)
+    {
+        AddMessage("danger", ViewBag.Error as string);
+        AddMessage("success", ViewBag.Success as string);
+    }
+
+    AddMessage("danger", TempData["Error"]?.ToString());
+    AddMessage("success", TempData["Success"]?.ToString());
+}
+
+@foreach (var message in messages)
+{
+    <div class="alert alert-dismissible alert-@message.Type mt-2">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <strong>@message.Text</strong>
+    </div>
+}

@@ -1,0 +1,38 @@
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Repos\bin\Debug\net8.0\FarmerToConsumer.Repos.deps.json
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Repos\bin\Debug\net8.0\FarmerToConsumer.Repos.dll
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Repos\bin\Debug\net8.0\FarmerToConsumer.Repos.pdb
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Repos\bin\Debug\net8.0\FarmerToConsumer.Data.dll
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Repos\bin\Debug\net8.0\FarmerToConsumer.Entities.dll
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Repos\bin\Debug\net8.0\FarmerToConsumer.Shared.dll
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Repos\bin\Debug\net8.0\FarmerToConsumer.Data.pdb
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Repos\bin\Debug\net8.0\FarmerToConsumer.Shared.pdb
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Repos\bin\Debug\net8.0\FarmerToConsumer.Entities.pdb
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Repos\obj\Debug\net8.0\FarmerToConsumer.Repos.csproj.AssemblyReference.cache
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Repos\obj\Debug\net8.0\FarmerToConsumer.Repos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Repos\obj\Debug\net8.0\FarmerToConsumer.Repos.AssemblyInfoInputs.cache
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Repos\obj\Debug\net8.0\FarmerToConsumer.Repos.AssemblyInfo.cs
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Repos\obj\Debug\net8.0\FarmerToConsumer.Repos.csproj.CoreCompileInputs.cache
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Repos\obj\Debug\net8.0\FarmerTo.61FE98E6.Up2Date
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Repos\obj\Debug\net8.0\FarmerToConsumer.Repos.dll
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Repos\obj\Debug\net8.0\refint\FarmerToConsumer.Repos.dll
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Repos\obj\Debug\net8.0\FarmerToConsumer.Repos.pdb
+C:\Users\User\Downloads\latestfile_FTC_renamed\AdminPart_MatirGhran\FarmerToConsumer.Repos\obj\Debug\net8.0\ref\FarmerToConsumer.Repos.dll
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Repos\bin\Debug\net8.0\FarmerToConsumer.Repos.deps.json
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Repos\bin\Debug\net8.0\FarmerToConsumer.Repos.dll
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Repos\bin\Debug\net8.0\FarmerToConsumer.Repos.pdb
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Repos\bin\Debug\net8.0\FarmerToConsumer.Data.dll
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Repos\bin\Debug\net8.0\FarmerToConsumer.Entities.dll
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Repos\bin\Debug\net8.0\FarmerToConsumer.Shared.dll
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Repos\bin\Debug\net8.0\FarmerToConsumer.Data.pdb
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Repos\bin\Debug\net8.0\FarmerToConsumer.Shared.pdb
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Repos\bin\Debug\net8.0\FarmerToConsumer.Entities.pdb
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Repos\obj\Debug\net8.0\FarmerToConsumer.Repos.csproj.AssemblyReference.cache
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Repos\obj\Debug\net8.0\FarmerToConsumer.Repos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Repos\obj\Debug\net8.0\FarmerToConsumer.Repos.AssemblyInfoInputs.cache
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Repos\obj\Debug\net8.0\FarmerToConsumer.Repos.AssemblyInfo.cs
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Repos\obj\Debug\net8.0\FarmerToConsumer.Repos.csproj.CoreCompileInputs.cache
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Repos\obj\Debug\net8.0\FarmerTo.61FE98E6.Up2Date
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Repos\obj\Debug\net8.0\FarmerToConsumer.Repos.dll
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Repos\obj\Debug\net8.0\refint\FarmerToConsumer.Repos.dll
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Repos\obj\Debug\net8.0\FarmerToConsumer.Repos.pdb
+C:\Users\rimal\Downloads\Last Porject\FarmerToConsumer\FarmerToConsumer.Repos\obj\Debug\net8.0\ref\FarmerToConsumer.Repos.dll

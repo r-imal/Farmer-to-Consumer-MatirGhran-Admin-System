@@ -1,0 +1,6 @@
+@FarmerToConsumer.Api_HostAddress = https://localhost:36475
+
+GET {{FarmerToConsumer.Api_HostAddress}}/api/Farmer
+Accept: application/json
+
+###

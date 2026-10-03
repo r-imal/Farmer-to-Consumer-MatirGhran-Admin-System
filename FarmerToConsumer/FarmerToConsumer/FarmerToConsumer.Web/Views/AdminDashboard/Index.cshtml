@@ -1,0 +1,103 @@
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    var users = ViewBag.Users as List<FarmerToConsumer.Entities.UserInfo> ?? new();
+    var orders = ViewBag.Orders as List<FarmerToConsumer.Entities.CustomerOrder> ?? new();
+
+    string NormalizeRole(string role) => (role ?? "").Replace(" ", "").ToLower();
+    string DisplayOrderStatus(string status)
+    {
+        return (status ?? "").Trim().ToLower() switch
+        {
+            "placed" => "Pending",
+            "pending" => "Pending",
+            "accepted" => "Accepted",
+            "processing" => "Processing",
+            "on the way" => "On the way",
+            "ondelivery" => "On the way",
+            "delivered" => "Delivered",
+            _ => string.IsNullOrWhiteSpace(status) ? "Pending" : status
+        };
+    }
+
+    string DisplayPaymentStatus(FarmerToConsumer.Entities.CustomerOrder order)
+    {
+        return string.Equals(order.Payment?.Status, "Paid", StringComparison.OrdinalIgnoreCase) ? "Paid" : "Cash on Delivery";
+    }
+
+    var consumerCount = users.Count(u => NormalizeRole(u.Role) == "consumer");
+    var agentCount = users.Count(u => NormalizeRole(u.Role) == "agent");
+    var runningOrders = orders
+        .Where(o => DisplayOrderStatus(o.Status) != "Delivered")
+        .OrderByDescending(o => o.ID)
+        .ToList();
+}
+
+<div class="container-fluid px-0"><div class="row g-0 min-vh-100">
+    <partial name="_AdminSidebar" />
+    <section class="col bg-light text-dark p-4">
+        <div class="d-flex justify-content-between align-items-center gap-3 mb-4">
+            <div>
+                <p class="text-warning text-uppercase fw-bold mb-1">Monitor</p>
+                <h2>Admin Dashboard</h2>
+            </div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="card card-body bg-white text-dark shadow-sm border-0 h-100"><span>Total Consumers</span><strong class="fs-2">@consumerCount</strong></div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-body bg-white text-dark shadow-sm border-0 h-100"><span>Total Agents</span><strong class="fs-2">@agentCount</strong></div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-body bg-white text-dark shadow-sm border-0 h-100"><span>Running Orders</span><strong class="fs-2">@runningOrders.Count</strong></div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center gap-3 mt-4 mb-4">
+            <div>
+                <p class="text-warning text-uppercase fw-bold mb-1">Order Log</p>
+                <h2>Current Placed Orders</h2>
+            </div>
+            <a class="btn btn-outline-primary" asp-controller="AdminOrder" asp-action="OrderLogDetails">Log Details</a>
+        </div>
+
+        <div class="card card-body bg-white text-dark shadow-sm border-0">
+            @if (!runningOrders.Any())
+            {
+                <p class="text-secondary mb-0">No running orders found.</p>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table table-light table-striped table-hover align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Consumer</th>
+                                <th>Payment Status</th>
+                                <th>Order Status</th>
+                                <th>Delivery Status</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var order in runningOrders)
+                            {
+                                <tr>
+                                    <td>#@order.ID</td>
+                                    <td>#@order.CustomerId</td>
+                                    <td>@DisplayPaymentStatus(order)</td>
+                                    <td>@DisplayOrderStatus(order.Status)</td>
+                                    <td>@DisplayOrderStatus(order.DeliveryStatus)</td>
+                                    <td>@order.TotalAmount.ToString("0") BDT</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+    </section>
+    </div>
+</div>

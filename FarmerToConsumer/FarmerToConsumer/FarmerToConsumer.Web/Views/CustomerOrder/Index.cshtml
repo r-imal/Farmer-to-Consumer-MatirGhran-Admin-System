@@ -1,0 +1,60 @@
+@model List<CustomerOrder>
+
+@{
+    ViewData["Title"] = "My Orders";
+}
+
+@functions {
+    string BadgeClass(string? status)
+    {
+        return status switch
+        {
+            "Paid" or "Delivered" or "Accepted" => "bg-success",
+            "Unpaid" => "bg-warning text-dark",
+            "Cancelled" or "Rejected" => "bg-danger",
+            _ => "bg-secondary"
+        };
+    }
+}
+
+<div class="container py-4">
+    <h1 class="h3">Order Tracking</h1>
+    <p class="text-secondary">Track delivery progress and payment status from one place.</p>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle">
+            <thead>
+                <tr class="table-info">
+                    <th>Order</th>
+                    <th>Total</th>
+                    <th>Payment</th>
+                    <th>Method</th>
+                    <th>Delivery</th>
+                    <th>Agent</th>
+                    <th style="width: 110px;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            @if (Model == null || Model.Count == 0)
+            {
+                <tr class="table-secondary text-center"><td colspan="7">No orders found.</td></tr>
+            }
+            else
+            {
+                foreach (var order in Model)
+                {
+                    <tr>
+                        <td>#@order.ID</td>
+                        <td>@order.TotalAmount taka</td>
+                        <td><span class="badge @BadgeClass(order.Payment?.Status)">@(order.Payment?.Status ?? "-")</span></td>
+                        <td>@(order.Payment?.Method ?? "-")</td>
+                        <td><span class="badge @BadgeClass(order.DeliveryStatus)">@order.DeliveryStatus</span></td>
+                        <td>@(order.Agent?.Name ?? "Not assigned")</td>
+                        <td><a class="btn btn-info btn-sm" asp-action="Detail" asp-route-dataId="@order.ID">Track</a></td>
+                    </tr>
+                }
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

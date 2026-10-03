@@ -1,0 +1,84 @@
+@model CustomerOrderDetailModel
+
+@{
+    ViewData["Title"] = $"Order #{Model.Order.ID}";
+}
+
+@functions {
+    string BadgeClass(string? status)
+    {
+        return status switch
+        {
+            "Paid" or "Delivered" or "Accepted" => "bg-success",
+            "Unpaid" => "bg-warning text-dark",
+            "Cancelled" or "Rejected" => "bg-danger",
+            _ => "bg-secondary"
+        };
+    }
+}
+
+<div class="container py-4">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+        <div>
+            <h1 class="h3 mb-1">Order #@Model.Order.ID</h1>
+            <span class="badge @BadgeClass(Model.Order.DeliveryStatus)">@Model.Order.DeliveryStatus</span>
+        </div>
+        <a class="btn btn-outline-secondary" asp-action="Index">Back To Orders</a>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-lg-8">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="h5">Products</h2>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover align-middle mb-0">
+                            <thead>
+                                <tr class="table-info">
+                                    <th>Product</th>
+                                    <th>Qty</th>
+                                    <th>Price</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach (var item in Model.Order.Items)
+                            {
+                                <tr>
+                                    <td>@item.Product?.Name</td>
+                                    <td>@item.Quantity</td>
+                                    <td>@item.Price taka</td>
+                                    <td>@(item.Price * item.Quantity) taka</td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="h5">Payment Summary</h2>
+                    <dl class="row mb-0">
+                        <dt class="col-5">Agent</dt>
+                        <dd class="col-7">@(Model.Order.Agent?.Name ?? "Not assigned")</dd>
+                        <dt class="col-5">Address</dt>
+                        <dd class="col-7">@Model.Order.DeliveryAddress</dd>
+                        <dt class="col-5">Payment</dt>
+                        <dd class="col-7"><span class="badge @BadgeClass(Model.Order.Payment?.Status)">@(Model.Order.Payment?.Status ?? "-")</span></dd>
+                        <dt class="col-5">Method</dt>
+                        <dd class="col-7">@(Model.Order.Payment?.Method ?? "-")</dd>
+                        <dt class="col-5">Total</dt>
+                        <dd class="col-7 fw-bold">@Model.Order.TotalAmount taka</dd>
+                    </dl>
+                    @if (Model.Order.Payment?.Status == "Unpaid")
+                    {
+                        <a class="btn btn-primary w-100 mt-3" asp-action="Pay" asp-route-dataId="@Model.Order.ID">Pay Online Now</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

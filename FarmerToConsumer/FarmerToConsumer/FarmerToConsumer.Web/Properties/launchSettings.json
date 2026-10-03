@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "FarmerToConsumer.Web": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:36473;http://localhost:36474"
+    }
+  }
+}

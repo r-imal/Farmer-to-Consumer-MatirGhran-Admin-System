@@ -1,0 +1,66 @@
+@model List<FarmerToConsumer.Entities.UserInfo>
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<div class="container-fluid px-0"><div class="row g-0 min-vh-100">
+    <partial name="_AdminSidebar" />
+    <section class="col bg-light text-dark p-4">
+        <div class="d-flex justify-content-between align-items-center gap-3 mb-4">
+            <div>
+                <p class="text-warning text-uppercase fw-bold mb-1">Team</p>
+                <h2>Employees</h2>
+            </div>
+        </div>
+
+        @if (!Model.Any())
+        {
+            <div class="card card-body bg-white text-dark shadow-sm border-0 text-center text-secondary py-4">
+                <h4>No employees found</h4>
+                <p class="mb-0">Admin and agent users will appear here.</p>
+            </div>
+        }
+        else
+        {
+            <div class="card card-body bg-white text-dark shadow-sm border-0 table-responsive">
+                <table class="table table-light table-sm table-striped table-hover align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Phone</th>
+                            <th>Village</th>
+                            <th class="text-end">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in Model)
+                        {
+                            var roleKey = (user.Role ?? "").Replace(" ", "").ToLower();
+                            var roleText = roleKey == "admin" ? "Admin" : "Agent";
+                            <tr>
+                                <td>
+                                    <strong>@user.Name</strong>
+                                    <div class="text-secondary small">@user.Email</div>
+                                </td>
+                                <td><span class="badge @(roleKey == "admin" ? "bg-primary" : "bg-success") text-white">@roleText</span></td>
+                                <td>@user.Phone</td>
+                                <td>@(string.IsNullOrWhiteSpace(user.Village) ? "Not set" : user.Village)</td>
+                                <td class="text-end">
+                                    <div class="d-inline-flex gap-2">
+                                        <a class="btn btn-outline-primary btn-sm" asp-controller="AdminEmployee" asp-action="EditEmployee" asp-route-id="@user.ID">Edit</a>
+                                        <form asp-controller="AdminEmployee" asp-action="DeleteEmployee" method="post" class="m-0" onsubmit="return confirm('Delete this employee?');">
+                                            <input type="hidden" name="id" value="@user.ID" />
+                                            <button class="btn btn-outline-danger btn-sm" type="submit">Delete</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </section>
+    </div>
+</div>

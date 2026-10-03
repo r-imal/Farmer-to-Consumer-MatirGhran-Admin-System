@@ -1,0 +1,70 @@
+@model Farmer
+
+<div class="container-fluid px-0"><div class="row g-0 min-vh-100">
+    <partial name="_AgentSidebar" />
+    <section class="col bg-light text-dark p-4">
+        <div class="container border bg-white mt-2 p-4">
+            <div class="row">
+                <div class="col-12">
+                    @if (Model.ID == 0)
+                    {
+                        <h2>Add New Farmer</h2>
+                    }
+                    else
+                    {
+                        <h2>Farmer# @Model.ID</h2>
+                    }
+                </div>
+
+                <hr />
+            </div>
+
+            <form method="post">
+                <input type="hidden" asp-for="ID" />
+
+                <div class="row mb-3">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="row mb-3">
+                    <label asp-for="Village" class="form-label"></label>
+                    <input asp-for="Village" class="form-control" />
+                    <span asp-validation-for="Village" class="text-danger"></span>
+                </div>
+
+                <div class="row mb-3">
+                    <label asp-for="District" class="form-label"></label>
+                    <input asp-for="District" class="form-control" />
+                    <span asp-validation-for="District" class="text-danger"></span>
+                </div>
+
+                <div class="row mb-3">
+                    <label asp-for="Contact" class="form-label"></label>
+                    <input asp-for="Contact" class="form-control" />
+                    <span asp-validation-for="Contact" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-floppy2"></i> &nbsp;Submit
+                        </button>
+
+                        &nbsp;
+
+                        <a asp-action="Index" asp-controller="Farmer" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left-circle-fill"></i> &nbsp;Back To List
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</div></div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

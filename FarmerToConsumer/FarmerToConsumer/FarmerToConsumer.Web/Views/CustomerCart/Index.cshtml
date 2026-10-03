@@ -1,0 +1,71 @@
+@model CustomerCartModel
+
+@{
+    ViewData["Title"] = "My Cart";
+}
+
+<div class="container py-4">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+        <h1 class="h3 mb-0">My Cart</h1>
+        <a class="btn btn-outline-primary" asp-controller="Home" asp-action="Index">Continue Shopping</a>
+    </div>
+
+    @if (Model == null || Model.Items.Count == 0)
+    {
+        <div class="alert alert-info">Your cart is empty.</div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle">
+                <thead>
+                    <tr class="table-info">
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th style="width: 190px;">Quantity</th>
+                        <th>Total</th>
+                        <th style="width: 90px;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>
+                            <strong>@item.Stock?.Product?.Name</strong>
+                            <div class="text-secondary small">@item.Stock?.Product?.Category</div>
+                        </td>
+                        <td>@item.UnitPrice taka</td>
+                        <td>
+                            <form asp-action="Update" method="post" class="d-flex gap-2">
+                                <input type="hidden" name="stockId" value="@item.StockId" />
+                                <input type="number" min="1" name="quantity" value="@item.Quantity" class="form-control" />
+                                <button type="submit" class="btn btn-primary"><i class="bi bi-check2"></i></button>
+                            </form>
+                        </td>
+                        <td>@item.LineTotal taka</td>
+                        <td>
+                            <a class="btn btn-danger" asp-action="Remove" asp-route-dataId="@item.StockId"><i class="bi bi-trash3"></i></a>
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <th colspan="3" class="text-end">Subtotal</th>
+                    <th colspan="2">@Model.Subtotal taka</th>
+                </tr>
+                <tr>
+                    <th colspan="3" class="text-end">Delivery Charge</th>
+                    <th colspan="2">@Model.DeliveryCharge taka</th>
+                </tr>
+                <tr class="table-success">
+                    <th colspan="3" class="text-end">Total</th>
+                    <th colspan="2">@Model.Total taka</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="text-end">
+            <a class="btn btn-primary" asp-action="Checkout">Checkout</a>
+        </div>
+    }
+</div>

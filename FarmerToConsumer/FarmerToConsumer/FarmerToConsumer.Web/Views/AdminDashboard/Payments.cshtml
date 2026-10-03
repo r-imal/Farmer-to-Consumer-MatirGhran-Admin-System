@@ -1,0 +1,105 @@
+@{
+    ViewData["Title"] = "Payments";
+    var agents = ViewBag.Agents as List<FarmerToConsumer.Entities.UserInfo> ?? new();
+    var selectedAgent = ViewBag.SelectedAgent as FarmerToConsumer.Entities.UserInfo;
+    var historyAgent = ViewBag.HistoryAgent as FarmerToConsumer.Entities.UserInfo;
+    var paymentHistory = ViewBag.PaymentHistory as List<FarmerToConsumer.Repos.AgentPaymentHistoryItem> ?? new();
+}
+
+<div class="container-fluid px-0"><div class="row g-0 min-vh-100">
+    <partial name="_AdminSidebar" />
+    <section class="col bg-light text-dark p-4">
+        <div class="d-flex justify-content-between align-items-center gap-3 mb-4">
+            <div>
+                <p class="text-warning text-uppercase fw-bold mb-1">Salary</p>
+                <h2>Agent Payment</h2>
+            </div>
+        </div>
+
+        <div class="card card-body bg-white text-dark shadow-sm border-0 mb-3">
+            <form asp-controller="AdminPayment" asp-action="Payments" method="get" class="row g-3 align-items-end">
+                <div class="col-md-12">
+                    <label class="form-label">Agent</label>
+                    <select name="agentId" class="form-select" onchange="this.form.submit()" required>
+                        <option value="">Select Agent</option>
+                        @foreach (var agent in agents.OrderBy(a => a.Name))
+                        {
+                            <option value="@agent.ID" selected="@(selectedAgent?.ID == agent.ID)">#@agent.ID - @agent.Name (@agent.Phone)</option>
+                        }
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <form asp-controller="AdminPayment" asp-action="PayAgent" method="post" class="card card-body bg-white text-dark shadow-sm border-0">
+            <input id="selectedPaymentAgentId" type="hidden" name="agentId" value="@selectedAgent?.ID" />
+            <div class="row g-3 align-items-end">
+                <div class="col-md-10">
+                    <label class="form-label">Amount</label>
+                    <input name="amount" type="number" step="1" min="1" class="form-control" placeholder="BDT" required />
+                </div>
+                <div class="col-md-2 d-grid">
+                    <button class="btn btn-primary" @(selectedAgent == null ? "disabled" : "")>Send Payment</button>
+                </div>
+            </div>
+        </form>
+
+        @if (TempData["LastPayment"] != null)
+        {
+            <div class="card card-body bg-white text-dark shadow-sm border-0 mt-3">
+                <h3>Last Payment Sent</h3>
+                <p class="mb-0">@TempData["LastPayment"]</p>
+            </div>
+        }
+
+        <div class="card card-body bg-white text-dark shadow-sm border-0 table-responsive mt-3">
+            <div class="d-flex justify-content-between align-items-center gap-3 mb-3">
+                <div>
+                    <h3 class="mb-1">Payment History</h3>
+                </div>
+                <form asp-controller="AdminPayment" asp-action="Payments" method="get" class="w-100">
+                    <label class="form-label">History Agent</label>
+                    <select name="historyAgentId" class="form-select form-select-sm" onchange="this.form.submit()">
+                        <option value="">All Agents</option>
+                        @foreach (var agent in agents.OrderBy(a => a.Name))
+                        {
+                            <option value="@agent.ID" selected="@(historyAgent?.ID == agent.ID)">#@agent.ID - @agent.Name</option>
+                        }
+                    </select>
+                </form>
+            </div>
+
+            @if (paymentHistory.Any())
+            {
+                <table class="table table-light table-striped table-hover align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Agent</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var payment in paymentHistory)
+                        {
+                            <tr>
+                                <td>@payment.PaidAt.ToString("dd MMM yyyy")</td>
+                                <td>#@payment.AgentId - @payment.AgentName</td>
+                                <td>@payment.From</td>
+                                <td>@payment.To</td>
+                                <td>@payment.Amount.ToString("0") BDT</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div class="text-center text-secondary py-4">No agent payment has been sent yet.</div>
+            }
+        </div>
+    </section>
+    </div>
+</div>

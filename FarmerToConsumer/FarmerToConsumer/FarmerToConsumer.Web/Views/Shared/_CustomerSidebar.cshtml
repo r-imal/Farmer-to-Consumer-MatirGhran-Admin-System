@@ -1,0 +1,24 @@
+<aside class="customer-sidebar">
+    <nav class="customer-sidebar__nav" aria-label="Customer navigation">
+        <a class="customer-sidebar__link" asp-controller="CustomerDashboard" asp-action="Index">
+            <i class="bi bi-speedometer2"></i>
+            <span>Dashboard</span>
+        </a>
+        <a class="customer-sidebar__link" asp-controller="Account" asp-action="Profile">
+            <i class="bi bi-person-gear"></i>
+            <span>Profile</span>
+        </a>
+        <a class="customer-sidebar__link" asp-controller="Home" asp-action="Index">
+            <i class="bi bi-basket2"></i>
+            <span>Products</span>
+        </a>
+        <a class="customer-sidebar__link" asp-controller="CustomerCart" asp-action="Index">
+            <i class="bi bi-cart3"></i>
+            <span>Cart</span>
+        </a>
+        <a class="customer-sidebar__link" asp-controller="CustomerOrder" asp-action="Index">
+            <i class="bi bi-truck"></i>
+            <span>Order Tracking</span>
+        </a>
+    </nav>
+</aside>

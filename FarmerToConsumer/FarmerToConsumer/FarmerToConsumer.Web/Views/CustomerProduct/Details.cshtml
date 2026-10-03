@@ -1,0 +1,39 @@
+@model ProductStock
+
+@{
+    ViewData["Title"] = Model.Product?.Name ?? "Product Details";
+}
+
+<div class="container py-4">
+    <div class="card">
+        <div class="card-body p-4">
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <div class="border bg-light d-flex align-items-center justify-content-center ratio ratio-4x3">
+                        <div class="text-center p-3">
+                            <i class="bi bi-basket display-4 text-primary"></i>
+                            <div class="h4 mt-3">@Model.Product?.Name</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <span class="badge text-bg-info mb-2">@Model.Product?.Category</span>
+                    <h1 class="h3">@Model.Product?.Name</h1>
+                    <p class="text-secondary">Supplied by @(Model.Product?.Farmer?.Name ?? "registered farmer").</p>
+                    <table class="table table-bordered">
+                        <tr><th>Price</th><td>@Model.Price taka</td></tr>
+                        <tr><th>Available Quantity</th><td>@Model.Quantity</td></tr>
+                        <tr><th>Farmer Village</th><td>@(Model.Product?.Farmer?.Village ?? "-")</td></tr>
+                        <tr><th>District</th><td>@(Model.Product?.Farmer?.District ?? "-")</td></tr>
+                    </table>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a class="btn btn-outline-secondary" asp-controller="Home" asp-action="Index"><i class="bi bi-arrow-left"></i> Back</a>
+                        <a class="btn btn-primary" asp-controller="CustomerCart" asp-action="Add" asp-route-dataId="@Model.ID">
+                            <i class="bi bi-cart-plus"></i> Add To Cart
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

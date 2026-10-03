@@ -1,0 +1,55 @@
+@model FarmerToConsumer.Entities.Agent
+@{
+    ViewData["Title"] = "Assignment Details";
+    var assignment = ViewBag.Assignment as FarmerToConsumer.Entities.AgentAssignment;
+    var village = assignment?.AgentWorkVillage ?? Model.Area ?? "";
+}
+
+<div class="container-fluid px-0"><div class="row g-0 min-vh-100">
+    <partial name="_AdminSidebar" />
+    <section class="col bg-light text-dark p-4">
+        <div class="d-flex justify-content-between align-items-center gap-3 mb-4">
+            <div>
+                <p class="text-warning text-uppercase fw-bold mb-1">Agent Work</p>
+                <h2>Assignment Details</h2>
+            </div>
+            <a class="btn btn-outline-secondary" asp-controller="AdminAgent" asp-action="Assignments">Back</a>
+        </div>
+
+        <form asp-controller="AdminAgent" asp-action="UpdateAssignment" method="post" class="card card-body bg-white text-dark shadow-sm border-0">
+            <input type="hidden" name="agentId" value="@Model.ID" />
+
+            <div class="table-responsive mb-3">
+                <table class="table table-light table-striped align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>Agent</th>
+                            <th>Phone</th>
+                            <th>Area</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#@Model.ID - @Model.Name</td>
+                            <td>@Model.Phone</td>
+                            <td>@Model.Area</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-12">
+                    <label class="form-label">Work Village</label>
+                    <input name="village" class="form-control" value="@village" required />
+                </div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mt-3">
+                <button class="btn btn-primary">Save Changes</button>
+                <a class="btn btn-outline-secondary" asp-controller="AdminAgent" asp-action="Assignments">Cancel</a>
+            </div>
+        </form>
+    </section>
+    </div>
+</div>
